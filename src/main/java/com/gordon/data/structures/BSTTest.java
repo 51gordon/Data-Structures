@@ -18,5 +18,11 @@ public class BSTTest {
 
     System.out.println();
     System.out.println(bst);
+
+    System.out.println("中序遍历");
+    bst.inOrder();
+
+    System.out.println("后序遍历");
+    bst.postOrder();
   }
 }
