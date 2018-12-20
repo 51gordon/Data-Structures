@@ -1,5 +1,7 @@
 package com.gordon.data.structures;
 
+import java.util.Stack;
+
 public class BST<E extends Comparable<E>> {
   private class Node {
     private E e;
@@ -74,6 +76,22 @@ public class BST<E extends Comparable<E>> {
       System.out.println(node.e);
       preOrder(node.left);
       preOrder(node.right);
+    }
+  }
+
+  // NR: non-recursive
+  public void preOrderNR() {
+    Stack<Node> stack = new Stack<Node>();
+    stack.push(root);
+    while (!stack.isEmpty()) {
+      Node cur = stack.pop();
+      System.out.println(cur.e);
+      if (cur.right != null) {
+        stack.push(cur.right);
+      }
+      if (cur.left != null) {
+        stack.push(cur.left);
+      }
     }
   }
 

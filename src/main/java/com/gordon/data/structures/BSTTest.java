@@ -14,15 +14,19 @@ public class BSTTest {
     //  / \     \  //
     // 2   4     8 //
     /////////////////
+    System.out.println(bst);
+    System.out.println();
+
+    System.out.println("前序遍历：");
     bst.preOrder();
 
-    System.out.println();
-    System.out.println(bst);
-
-    System.out.println("中序遍历");
+    System.out.println("中序遍历：");
     bst.inOrder();
 
-    System.out.println("后序遍历");
+    System.out.println("后序遍历：");
     bst.postOrder();
+
+    System.out.println("非递归的前序遍历：");
+    bst.preOrderNR();
   }
 }
