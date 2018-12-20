@@ -1,5 +1,7 @@
 package com.gordon.data.structures;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BST<E extends Comparable<E>> {
@@ -116,6 +118,21 @@ public class BST<E extends Comparable<E>> {
       postOrder(node.left);
       postOrder(node.right);
       System.out.println(node.e);
+    }
+  }
+
+  public void levelOrder() {
+    Queue<Node> queue = new LinkedList<Node>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+      Node cur = queue.poll();
+      System.out.println(cur.e);
+      if (cur.left != null) {
+        queue.add(cur.left);
+      }
+      if (cur.right != null) {
+        queue.add(cur.right);
+      }
     }
   }
 

@@ -28,5 +28,8 @@ public class BSTTest {
 
     System.out.println("非递归的前序遍历：");
     bst.preOrderNR();
+
+    System.out.println("层序（广度优先）遍历：");
+    bst.levelOrder();
   }
 }
