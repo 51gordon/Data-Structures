@@ -164,6 +164,40 @@ public class BST<E extends Comparable<E>> {
     return maximum(node.right);
   }
 
+  public E removeMin() {
+    E ret = minimum();
+    root = removeMin(root);
+    return ret;
+  }
+
+  private Node removeMin(Node node) {
+    if (node.left == null) {
+      Node rightNode = node.right;
+      node.right = null;
+      size--;
+      return rightNode;
+    }
+    node.left = removeMin(node.left);
+    return node;
+  }
+
+  public E removeMax() {
+    E ret = maximum();
+    root = removeMax(root);
+    return ret;
+  }
+
+  private Node removeMax(Node node) {
+    if (node.right == null) {
+      Node leftNode = node.left;
+      node.left = null;
+      size--;
+      return leftNode;
+    }
+    node.right = removeMax(node.right);
+    return node;
+  }
+
   @Override
   public String toString() {
     StringBuilder res = new StringBuilder();
