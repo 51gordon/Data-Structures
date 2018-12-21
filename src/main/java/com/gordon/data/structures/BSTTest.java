@@ -31,5 +31,11 @@ public class BSTTest {
 
     System.out.println("层序（广度优先）遍历：");
     bst.levelOrder();
+
+    System.out.println("二分搜索树最小值：");
+    System.out.println(bst.minimum());
+
+    System.out.println("二分搜索树最大值：");
+    System.out.println(bst.maximum());
   }
 }

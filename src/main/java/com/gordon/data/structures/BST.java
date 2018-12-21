@@ -136,6 +136,34 @@ public class BST<E extends Comparable<E>> {
     }
   }
 
+  public E minimum() {
+    if (size == 0) {
+      throw new IllegalArgumentException("BST is empty!");
+    }
+    return minimum(root).e;
+  }
+
+  private Node minimum(Node node) {
+    if (node.left == null) {
+      return node;
+    }
+    return minimum(node.left);
+  }
+
+  public E maximum() {
+    if (size == 0) {
+      throw new IllegalArgumentException("BST is empty!");
+    }
+    return maximum(root).e;
+  }
+
+  private Node maximum(Node node) {
+    if (node.right == null) {
+      return node;
+    }
+    return maximum(node.right);
+  }
+
   @Override
   public String toString() {
     StringBuilder res = new StringBuilder();
