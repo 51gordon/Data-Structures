@@ -38,12 +38,16 @@ public class BSTTest {
     System.out.println("二分搜索树最大值：");
     System.out.println(bst.maximum());
 
-    System.out.println("删除最小元素：");
-    System.out.println(bst.removeMin());
-    System.out.println(bst);
+//    System.out.println("删除最小元素：");
+//    System.out.println(bst.removeMin());
+//    System.out.println(bst);
+//
+//    System.out.println("删除最大元素：");
+//    System.out.println(bst.removeMax());
+//    System.out.println(bst);
 
-    System.out.println("删除最大元素：");
-    System.out.println(bst.removeMax());
+    System.out.println("删除任意元素：");
+    bst.remove(3);
     System.out.println(bst);
   }
 }

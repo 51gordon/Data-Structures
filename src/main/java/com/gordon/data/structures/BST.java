@@ -198,6 +198,49 @@ public class BST<E extends Comparable<E>> {
     return node;
   }
 
+  // Hibbard Deletion
+  public void remove(E e) {
+    if (root != null) {
+      remove(root, e);
+    }
+  }
+
+  public Node remove(Node node, E e) {
+    if (node == null) {
+      return null;
+    }
+    int c = e.compareTo(node.e);
+    if (c < 0) {
+      node.left = remove(node.left, e);
+      return node;
+    } else if (c > 0) {
+      node.right = remove(node.right, e);
+      return node;
+    } else { // c == 0
+      // 左子树为空
+      if (node.left == null) {
+        Node rightNode = node.right;
+        node.right = null;
+        size--;
+        return rightNode;
+      }
+      // 右子树为空
+      if (node.right == null) {
+        Node leftNode = node.left;
+        node.left = null;
+        size--;
+        return leftNode;
+      }
+      // 左右子树都不为空
+      // 找到比当前节点大的最小节点，即待删除节点右子树的最小节点
+      Node successor = minimum(node.right);
+      successor.right = removeMin(node.right);
+      successor.left = node.left;
+      node.left = node.right = null;
+      return successor;
+    }
+  }
+
   @Override
   public String toString() {
     StringBuilder res = new StringBuilder();
